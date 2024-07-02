@@ -1,1 +1,0 @@
-# custom_product_attribute

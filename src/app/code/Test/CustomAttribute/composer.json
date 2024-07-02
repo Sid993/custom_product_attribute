@@ -1,0 +1,21 @@
+{
+    "name": "test/module-customattribute",
+    "description": "Product CustomAttribute",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Saurav Kumar"
+        }
+    ],
+    "version": "1.0.0",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Test\\CustomAttribute\\": ""
+        }
+    }
+}

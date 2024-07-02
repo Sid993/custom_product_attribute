@@ -1,0 +1,4 @@
+interface ProductInterface {
+    custom_product_type: String @doc(description: "Name of Custom Product the product")
+        @resolver(class: "\\Test\\CustomAttribute\\Model\\Resolver\\CustomProductType")
+}

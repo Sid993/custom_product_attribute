@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Test.
+ *
+ * @category   Test
+ * @package    Test_CustomAttribute
+ * @author     Test
+ * @copyright  Copyright
+ * @license    https://test.com/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--Creating Custom Import Command-->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="update_custom_attribute"
+                    xsi:type="object">Test\CustomAttribute\Console\Command\UpdateAttribute</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
