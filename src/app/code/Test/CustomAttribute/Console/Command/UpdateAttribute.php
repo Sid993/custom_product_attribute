@@ -13,6 +13,7 @@ namespace Test\CustomAttribute\Console\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Test\CustomAttribute\Model\Source\Config\Options;
 use Magento\Catalog\Model\Product\Action as ProductAction;
 
 class UpdateAttribute extends Command
@@ -38,7 +39,6 @@ class UpdateAttribute extends Command
      * @param ProductAction $productAction
      * @param \Magento\Framework\Module\Manager $moduleManager
      * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
-     * @return void
      */
     public function __construct(
         ProductAction $productAction,
@@ -72,8 +72,7 @@ class UpdateAttribute extends Command
                 $productCollection = $this->productCollectionFactory->create()->addAttributeToSelect('entity_id');
                 if ($productCollection->getSize()) {
                     $ids = $productCollection->getColumnValues('entity_id');
-                    $defaultValue = \Test\CustomAttribute\Model\Source\Config\Options::SALE;
-                    $this->productAction->updateAttributes($ids, ['custom_product_type' => $defaultValue], 0);
+                    $this->productAction->updateAttributes($ids, ['custom_product_type' => Options::SALE], 0);
                     $output->writeln('<info>Product Update Command Executed Successfully.</info>');
                 } else {
                     $output->writeln('<info>Product Not Available.</info>');

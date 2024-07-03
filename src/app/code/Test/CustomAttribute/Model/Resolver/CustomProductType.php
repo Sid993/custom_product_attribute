@@ -38,12 +38,12 @@ class CustomProductType implements ResolverInterface
     /**
      * @inheritdoc
      */
-    public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
+    public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null): string
     {
         $customProductType = $this->options->getAllOptions();
         $label = "";
         foreach ($customProductType as $option) {
-            if ($option['value'] == $value['custom_product_type']) {
+            if (isset($value['custom_product_type']) && $option['value'] == $value['custom_product_type']) {
                 $label = $option['label'];
             }
         }

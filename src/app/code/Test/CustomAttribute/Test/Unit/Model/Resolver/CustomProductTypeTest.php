@@ -79,7 +79,6 @@ class CustomProductTypeTest extends TestCase
             ],
             []
         );
-        $this->assertNotEmpty($result);
         $this->assertEquals($expected, $result);
     }
 
@@ -115,6 +114,15 @@ class CustomProductTypeTest extends TestCase
                 ],
                 "exclusive",
                 "Exclusive"
+            ],
+            [
+                [
+                    ['label' => 'New', 'value' => 'new'],
+                    ['label' => 'Sale', 'value' => 'sale'],
+                    ['label' => 'Exclusive', 'value' => 'exclusive']
+                ],
+                "",
+                ""
             ]
         ];
     }

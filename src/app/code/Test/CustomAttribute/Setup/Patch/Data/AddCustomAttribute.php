@@ -18,6 +18,7 @@ use Magento\Catalog\Model\Product;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Test\CustomAttribute\Model\Source\Config\Options;
 use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 
 class AddCustomAttribute implements DataPatchInterface
@@ -55,7 +56,7 @@ class AddCustomAttribute implements DataPatchInterface
     /**
      * @return void
      */
-    public function apply()
+    public function apply(): void
     {
         try {
             /** @var EavSetup $eavSetup */
@@ -69,13 +70,13 @@ class AddCustomAttribute implements DataPatchInterface
                     'group' => 'Product Details',
                     'label' => 'Custom Product Type',
                     'input' => 'select',
-                    'source' => \Test\CustomAttribute\Model\Source\Config\Options::class,
+                    'source' => Options::class,
                     'frontend' => '',
                     'required' => false,
                     'backend' => '',
-                    'default' => \Test\CustomAttribute\Model\Source\Config\Options::NEW,
+                    'default' => Options::NEW,
                     'sort_order' => 100,
-                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
+                    'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
                     'visible' => true,
                     'user_defined' => true,
                     'searchable' => true,
